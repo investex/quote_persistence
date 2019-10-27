@@ -20,6 +20,5 @@ defmodule Quote.Persistence.Quote do
     |> cast(params, [:price, :source, :instrument_id])
     |> validate_required([:price, :source, :instrument_id])
     |> assoc_constraint(:instrument)
-    |> unique_constraint(:instrument)
   end
 end
