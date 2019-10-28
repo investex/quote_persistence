@@ -5,6 +5,8 @@ defmodule Quote.Persistence.Quote do
 
   alias Quote.Persistence.Instrument
 
+  @type t :: %__MODULE__{}
+
   schema "quotes" do
     field :global_id, :binary_id, read_after_writes: true
     field :price, :integer, null: false

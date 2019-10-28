@@ -3,6 +3,8 @@ defmodule Quote.Persistence.Instrument do
 
   import Ecto.Changeset
 
+  @type t :: %__MODULE__{}
+
   schema "instruments" do
     field :global_id, :binary_id, read_after_writes: true
     field :symbol, :string
