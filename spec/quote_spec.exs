@@ -24,6 +24,11 @@ defmodule Quote.QuoteSpec do
       expect changeset.valid? |> to(be_falsy())
     end
 
+    it "is invalid without a response" do
+      changeset = %{subject() | response: nil} |> Quote.changeset
+      expect changeset.valid? |> to(be_falsy())
+    end
+
     it "is invalid without an instrument ID" do
       changeset = %{subject() | instrument_id: nil} |> Quote.changeset
       expect changeset.valid? |> to(be_falsy())

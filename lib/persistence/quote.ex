@@ -9,6 +9,7 @@ defmodule Quote.Persistence.Quote do
     field :global_id, :binary_id, read_after_writes: true
     field :price, :integer, null: false
     field :source, :string, null: false
+    field :response, :map, null: false
 
     belongs_to :instrument, Instrument
 
@@ -17,8 +18,8 @@ defmodule Quote.Persistence.Quote do
 
   def changeset(quote_obj, params \\ %{}) do
     quote_obj
-    |> cast(params, [:price, :source, :instrument_id])
-    |> validate_required([:price, :source, :instrument_id])
+    |> cast(params, [:price, :source, :response, :instrument_id])
+    |> validate_required([:price, :source, :response, :instrument_id])
     |> assoc_constraint(:instrument)
   end
 end

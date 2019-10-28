@@ -7,6 +7,7 @@ defmodule Quote.Persistence.Repo.Migrations.CreateQuotes do
       add :instrument_id, references(:instruments), null: false
       add :price, :integer, null: false
       add :source, :string, null: false
+      add :response, :map, null: false
 
       timestamps()
     end
